@@ -1,0 +1,92 @@
+@use "./variable" as vr;
+
+.sliderSection {
+  height: 400px;
+  --img-size: 80vw;
+  width: var(--img-size);
+  min-width: 300px;
+  // box-shadow: 0 0 5px vr.$gray-color;
+  margin-top: 6%;
+  overflow: hidden;
+  position: relative;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    z-index: 2;
+    top: 0;
+    background: linear-gradient(to left, transparent 70%, vr.$background-color);
+  }
+  &::after {
+    right: 0;
+    scale: -1;
+  }
+
+  .slidImageHolder {
+    height: 100%;
+    width: calc(var(--img-size) * 3);
+    display: flex;
+    animation: slideAnimation 10s infinite linear;
+  }
+
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    30% {
+      transform: translateX(0);
+    }
+
+    33% {
+      transform: translateX(calc(var(--img-size) * -1));
+    }
+    60% {
+      transform: translateX(calc(var(--img-size) * -1));
+    }
+
+    63% {
+      transform: translateX(calc(var(--img-size) * -2));
+    }
+    97% {
+      transform: translateX(calc(var(--img-size) * -2));
+    }
+  }
+}
+
+.slidImage {
+  height: 100%;
+  width: 100%;
+  flex-basis: 1fr;
+  display: grid;
+  place-content: center;
+  background: center / cover var(--img) vr.$primary-color;
+}
+
+.infoCard {
+  width: 350px;
+  background: rgba(vr.$secondary-color, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: vr.$border-radius;
+  padding: vr.$large;
+  transform: translateX(-60%);
+  box-shadow: 0 0 8px vr.$gray-color;
+
+  h3 {
+    font-size: vr.$large;
+
+    &:before {
+      content: "\f138";
+      margin-right: 5px;
+      font: vr.$font-awesome;
+      font-size: vr.$medium;
+    }
+  }
+
+  p {
+    margin-top: vr.$medium;
+    font-size: vr.$medium;
+  }
+}

@@ -1,0 +1,18 @@
+@use "./variable" as vr;
+
+.footer {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    to top left,
+    vr.$primary-color,
+    vr.$secondary-color
+  );
+  display: grid;
+  place-content: center;
+
+  h2 {
+    font-size: vr.$small;
+    font-weight: 500;
+  }
+}

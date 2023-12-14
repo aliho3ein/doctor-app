@@ -1,0 +1,98 @@
+@use "./variable" as vr;
+
+.aboutSection {
+  margin-block: vr.$xxlarge;
+  height: 300px;
+  width: 70%;
+  position: relative;
+
+  .InfoSlice {
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 150px,
+      vr.$secondary-color 100px 250px
+    );
+    width: 100%;
+    border-radius: 150px;
+    border: 1px solid vr.$primary-color;
+    display: flex;
+    align-items: center;
+
+    div:not(.userImage) {
+      padding-inline: 5%;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.bigCircle,
+.smallCircle {
+  height: 270px;
+  aspect-ratio: 1;
+  position: absolute;
+  border: 1px solid vr.$primary-color;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  margin-block: auto;
+  left: 15px;
+  animation: rotateCircle 10s infinite linear;
+  z-index: -1;
+}
+
+.bigCircle {
+  height: 298px;
+  left: 0px;
+  top: 1px;
+  border-color: transparent;
+  animation: rotateCircle 30s infinite linear alternate-reverse;
+  .circles {
+    color: vr.$secondary-color;
+  }
+}
+
+.circles {
+  color: vr.$secondary-color;
+  font-size: 5px;
+  position: absolute;
+
+  &:nth-child(1) {
+    top: -3px;
+    left: 130px;
+  }
+  &:nth-child(2) {
+    bottom: -3px;
+    left: 130px;
+  }
+  &:nth-child(3) {
+    top: 130px;
+    left: -3px;
+  }
+  &:nth-child(4) {
+    top: 130px;
+    right: -3px;
+  }
+}
+
+.userImage {
+  height: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateX(30px);
+  box-shadow: 0 0 8px vr.$gray-color;
+  --img: url("https://www.alexianer-krefeld.de/fileadmin/_processed_/5/e/csm_K-BG-Ambulanz_MVZ_83ec3f2c66.jpg");
+  background: center/ cover var(--img);
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

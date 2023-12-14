@@ -1,0 +1,30 @@
+@use "./variable" as vr;
+
+.bannerSection {
+  height: 300px;
+  width: 100%;
+  display: grid;
+  place-content: center;
+  margin-block: vr.$xlarge;
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  background: top / cover
+    url("https://images.squarespace-cdn.com/content/v1/5dec2be23ab4a76a02d7717d/1586382431101-FVJPWPF6ETAPWW4K8Y9D/Hospital_DoctorBG_web.jpg?format=2500w")
+    fixed;
+
+  h2 {
+    font-size: vr.$xlarge;
+    font-weight: bold;
+    text-shadow: 0 0 10px #333;
+    user-select: none;
+  }
+
+  &:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: rgba(vr.$secondary-color, 0.2);
+    backdrop-filter: blur(6px);
+    position: absolute;
+    z-index: -1;
+  }
+}

@@ -1,0 +1,40 @@
+@use "./variable" as vr;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: vr.$primary-font;
+}
+
+html,
+body {
+  background: vr.$background-color;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - vr.$nav-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: vr.$black-color;
+}
+
+a {
+  @include vr.transition;
+  text-decoration: none;
+  color: vr.$white-color;
+  text-shadow: 0 0 2px vr.$shadow-color;
+  user-select: none;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  &:active {
+    all: unset;
+  }
+}

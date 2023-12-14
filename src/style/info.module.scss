@@ -1,0 +1,68 @@
+@use "./variable" as vr;
+
+.infoSection {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  align-items: center;
+}
+
+@mixin InfoCard {
+  width: 300px;
+  height: 300px;
+  padding: vr.$large;
+  border: 1px solid vr.$primary-color;
+  border-radius: vr.$border-radius;
+  background-color: vr.$secondary-color;
+
+  h3 {
+    &:before {
+      content: "\f017";
+      margin-right: 5px;
+      font: vr.$font-awesome;
+      font-size: vr.$medium;
+    }
+  }
+}
+
+.openingTime {
+  @include InfoCard;
+
+  ul {
+    margin-block: vr.$large;
+    list-style: none;
+    line-height: vr.$xlarge;
+
+    li {
+      padding-left: vr.$small;
+    }
+
+    li:nth-child(2n-1) {
+      background-color: vr.$secondary-color;
+      filter: brightness(1.1);
+    }
+
+    span {
+      font-weight: 700;
+    }
+
+    h4 {
+      width: 6rem;
+      display: inline-block;
+    }
+  }
+
+  p {
+    font-size: vr.$small;
+  }
+}
+
+.googleMap {
+  @include InfoCard;
+}
+
+.AddressCard {
+  @include InfoCard;
+}
